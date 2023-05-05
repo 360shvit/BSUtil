@@ -1,0 +1,25 @@
+name: BSUtils
+version: '${project.version}'
+main: net.shvit.bsutils.BSUtils
+api-version: 1.19
+prefix: BSU
+authors: [ 360shvit ]
+description: 'Essential BuildServerUtils'
+
+commands:
+  speedtool:
+    description: '/speedtool info'
+    aliases:
+      - setspeedtool
+  speed:
+    description: '/speed info'
+    aliases:
+      - flyspeed
+      - fs
+      - walkspeed
+      - ws
+  warp:
+    description: '/warp info'
+    aliases:
+      - setwarp
+      - delwarp
