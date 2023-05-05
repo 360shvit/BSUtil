@@ -1,9 +1,9 @@
 package net.shvit.bsutils.item;
 
-import net.shvit.bsutils.chat.Message;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import net.shvit.bsutils.chat.Message;
 import org.apache.commons.lang3.Validate;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;

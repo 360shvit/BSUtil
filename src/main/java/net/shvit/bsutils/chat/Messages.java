@@ -1,10 +1,10 @@
 package net.shvit.bsutils.chat;
 
-import net.shvit.bsutils.BSUtils;
-import net.shvit.bsutils.movement.speed.SpeedHandler;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
+import net.shvit.bsutils.BSUtils;
+import net.shvit.bsutils.movement.speed.SpeedHandler;
 import net.shvit.bsutils.movement.warp.Warp;
 import net.shvit.bsutils.movement.warp.WarpHandler;
 import net.shvit.bsutils.util.PageCollection;

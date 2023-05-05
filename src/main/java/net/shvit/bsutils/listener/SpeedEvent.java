@@ -1,7 +1,7 @@
 package net.shvit.bsutils.listener;
 
-import net.shvit.bsutils.movement.speed.speedtool.SpeedToolHandler;
 import net.shvit.bsutils.movement.speed.speedtool.SpeedTool;
+import net.shvit.bsutils.movement.speed.speedtool.SpeedToolHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
