@@ -37,6 +37,7 @@ public class FileBuilder {
     public void set(String path, Object value) {
 
         this.configuration.set(path, value);
+        this.save();
 
     }
 
