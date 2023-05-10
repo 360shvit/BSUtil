@@ -26,7 +26,10 @@ public class SpeedEvent implements Listener {
 
                     SpeedToolHandler.giveTool(player);
 
-                }else if (event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasLore() && !Objects.equals(event.getItem().getItemMeta().lore(), speedTool.toItem().getItemMeta().lore())) {
+                } else if (event.getItem().hasItemMeta() && event.getItem().getItemMeta().hasLore() && !Objects.equals(event
+                        .getItem()
+                        .getItemMeta()
+                        .lore(), speedTool.toItem().getItemMeta().lore())) {
 
                     SpeedToolHandler.giveTool(player);
 
@@ -37,4 +40,5 @@ public class SpeedEvent implements Listener {
             }
         }
     }
+
 }

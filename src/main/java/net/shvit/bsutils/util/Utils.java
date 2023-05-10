@@ -4,7 +4,6 @@ import org.jetbrains.annotations.NotNull;
 
 public class Utils {
 
-    //TODO Implement a Ending case
     public static @NotNull String argsToString(String @NotNull [] args, int start) {
 
         StringBuilder builder = new StringBuilder();
@@ -19,13 +18,11 @@ public class Utils {
 
     }
 
-
-    //TODO Implement other possible input types
     public static <T> Double[] argsToDouble(T args, int start, int stop) {
 
         Double[] doubleArgs = new Double[0];
 
-        if(args instanceof String[] newArgs) {
+        if (args instanceof String[] newArgs) {
 
             doubleArgs = new Double[newArgs.length - start];
             int index = 0;

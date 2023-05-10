@@ -15,87 +15,54 @@ public class WarpCommand implements CommandExecutor {
     private Player player;
     private String[] args;
 
-    public boolean onCommand(@NotNull  CommandSender sender, @NotNull  Command command, @NotNull  String label, @NotNull String[] args) {
+    @Override
+    public boolean onCommand(
+            @NotNull CommandSender sender,
+            @NotNull Command command,
+            @NotNull String label,
+            @NotNull String[] args
+    ) {
+        if (!(sender instanceof Player)) {
+            return false;
+        }
 
-        if(sender instanceof Player) {
-            this.player = (Player) sender;
-            this.args = args;
+        this.player = (Player) sender;
+        this.args = args;
 
-            handleCommandBounds();
+        handleCommandBounds();
 
-            if(label.equalsIgnoreCase("warp")) {
-
-                handleWarp();
-
-            }else if(label.equalsIgnoreCase("setwarp")) {
-
-                WarpHandler.createWarp(this.args[0], this.player);
-
-            }else if(label.equalsIgnoreCase("delwarp")) {
-
-                WarpHandler.removeWarp(this.args[0], this.player);
-
-            }
-
-
+        if (label.equalsIgnoreCase("warp")) {
+            handleWarp();
+        } else if (label.equalsIgnoreCase("setwarp")) {
+            WarpHandler.createWarp(args[0], player);
+        } else if (label.equalsIgnoreCase("delwarp")) {
+            WarpHandler.removeWarp(args[0], player);
         }
 
         return false;
     }
 
-    public void handleCommandBounds() {
-
-        if (this.args.length == 0) {
-
-            Messages.sendWarpInfo(this.player);
-
-        } else if (this.args[0].equalsIgnoreCase("list")) {
-
-            if (!(this.args.length == 1 || this.args.length == 2)) {
-                Messages.sendWarpInfo(this.player);
-            }
-
-        } else if (this.args.length != 1) {
-
-            Messages.sendWarpInfo(this.player);
-
+    private void handleCommandBounds() {
+        if (args.length == 0 || args[0].equalsIgnoreCase("info")) {
+            Messages.sendWarpInfo(player);
+        } else if (args[0].equalsIgnoreCase("list") && !(args.length == 1 || args.length == 2)) {
+            Messages.sendWarpInfo(player);
+        } else {
+            Messages.sendWarpInfo(player);
         }
     }
 
-    public void handleWarp() {
+    private void handleWarp() {
 
-        if(this.args.length == 0) {
-
-            Messages.sendWarpInfo(this.player);
-
-        }else if(this.args[0].equalsIgnoreCase("info")) {
-
-            Messages.sendWarpInfo(this.player);
-
-        }else if(this.args[0].equalsIgnoreCase("list")) {
-
-            if(BSUtils.getWarps().isEmpty()) {
-
-                Messages.sendNoWarps(this.player);
-                return;
+        if (args[0].equalsIgnoreCase("list")) {
+            if (BSUtils.getWarps().isEmpty()) {
+                Messages.sendNoWarps(player);
+            } else {
+                Messages.sendWarpList(player, args.length == 1 ? "1" : args[1]);
             }
-
-            if(this.args.length == 1) {
-
-                Messages.sendWarpList(this.player, "1");
-
-            }else if(this.args.length == 2) {
-
-                Messages.sendWarpList(this.player, this.args[1]);
-
-            }
-
-        }else {
-
-            WarpHandler.sendToWarp(this.player, new Warp(this.args[0]));
-
+        } else {
+            WarpHandler.sendToWarp(player, new Warp(args[0]));
         }
-
     }
 
 }

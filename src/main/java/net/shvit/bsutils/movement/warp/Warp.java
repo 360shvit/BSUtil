@@ -11,11 +11,11 @@ public class Warp {
 
     public Warp(String name) {
 
-        if(BSUtils.getWarps().contains(name)) {
+        if (BSUtils.getWarps().contains(name)) {
 
             load(name);
 
-        }else {
+        } else {
             this.name = name;
         }
 
@@ -24,27 +24,27 @@ public class Warp {
     public void load(String name) {
 
         //input -> null = return
-        if(name == null) {
+        if (name == null) {
             return;
         }
 
         //Config contains input init name
-        if(BSUtils.getWarps().contains(name)) {
+        if (BSUtils.getWarps().contains(name)) {
             this.name = name;
 
             try {
                 this.location = Location.deserialize(BSUtils.getWarps().getSection(name + ".location"));
-            }catch (Exception exception) {
+            } catch (Exception exception) {
                 exception.printStackTrace();
             }
-        }else {
+        } else {
             BSUtils.logger().info("Could not load Warp: File does not contain given warp name");
         }
     }
 
     public Warp location(Location location) {
 
-        if(location != null) {
+        if (location != null) {
             this.location = location;
         }
         return this;
@@ -65,7 +65,7 @@ public class Warp {
 
     public void toConfig() {
 
-        if(BSUtils.getWarps().contains(this.name)) {
+        if (BSUtils.getWarps().contains(this.name)) {
             return;
         }
 

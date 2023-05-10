@@ -12,7 +12,9 @@ public class SpeedToolHandler {
 
         if (player.getInventory().getItemInMainHand().getType() != Material.AIR) {
 
-            SpeedTool speedTool = new SpeedTool(player).material(player.getInventory().getItemInMainHand().getType()).clickValuesFromConfig();
+            SpeedTool speedTool = new SpeedTool(player)
+                    .material(player.getInventory().getItemInMainHand().getType())
+                    .clickValuesFromConfig();
             speedTool.toConfig();
 
         }
@@ -72,4 +74,5 @@ public class SpeedToolHandler {
 
         }
     }
+
 }

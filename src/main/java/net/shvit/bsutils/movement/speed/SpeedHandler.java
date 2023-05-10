@@ -90,15 +90,16 @@ public class SpeedHandler {
 
     public static <T> void setWalkSpeed(Player player, T input) {
 
-            if (getSpeed(player) == speedMath(player, input)) {
+        if (getSpeed(player) == speedMath(player, input)) {
 
-                Messages.sendCurrentSpeed(player);
+            Messages.sendCurrentSpeed(player);
 
-            } else {
+        } else {
 
-                player.setWalkSpeed(speedMath(player, input));
-                Messages.sendCurrentSpeed(player);
+            player.setWalkSpeed(speedMath(player, input));
+            Messages.sendCurrentSpeed(player);
 
-            }
+        }
     }
+
 }

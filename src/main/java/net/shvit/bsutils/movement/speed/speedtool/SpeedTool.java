@@ -93,9 +93,9 @@ public record SpeedTool(Player owner) {
 
             } else {
 
-                SpeedTool.material = Material.getMaterial(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.globalSpeedTool.item")).toString());
-                SpeedTool.leftClick = Float.parseFloat(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.globalSpeedTool.left")).toString());
-                SpeedTool.rightClick = Float.parseFloat(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.globalSpeedTool.right")).toString());
+                SpeedTool.material = Material.getMaterial(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.globalSpeedTool.item")).toString());
+                SpeedTool.leftClick = Float.parseFloat(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.globalSpeedTool.left")).toString());
+                SpeedTool.rightClick = Float.parseFloat(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.globalSpeedTool.right")).toString());
 
             }
         } catch (Exception exception) {
@@ -114,8 +114,8 @@ public record SpeedTool(Player owner) {
 
             } else {
 
-                SpeedTool.leftClick = Float.parseFloat(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.globalSpeedTool.left")).toString());
-                SpeedTool.rightClick = Float.parseFloat(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.globalSpeedTool.right")).toString());
+                SpeedTool.leftClick = Float.parseFloat(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.globalSpeedTool.left")).toString());
+                SpeedTool.rightClick = Float.parseFloat(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.globalSpeedTool.right")).toString());
 
             }
 

@@ -55,7 +55,7 @@ public class FileBuilder {
         Map<String, Object> locationMap = new TreeMap<>();
         ConfigurationSection locationSection = this.configuration.getConfigurationSection(path);
 
-        if(locationSection != null) {
+        if (locationSection != null) {
             for (String key : locationSection.getKeys(true)) {
                 locationMap.put(key, locationSection.get(key));
             }
@@ -74,7 +74,7 @@ public class FileBuilder {
     }
 
     public boolean isEmpty() {
-        return  this.configuration.getKeys(false).isEmpty();
+        return this.configuration.getKeys(false).isEmpty();
     }
 
 }

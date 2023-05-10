@@ -17,12 +17,8 @@ import java.util.TreeMap;
 
 public class Messages {
 
-    public static final TextColor HIGHLIGHTED_TEXT = TextColor.color(0xF3F3),
-            MAIN_TEXT = TextColor.color(0x00AAAA),
-            WHITE = TextColor.color(0xFFFFFF),
-            GRAY = TextColor.color(0x9A9A9A),
-            RED = TextColor.color(0xFF604C),
-            GREEN = TextColor.color(0x45C93E);
+    public static final TextColor HIGHLIGHTED_TEXT = TextColor.color(0xF3F3), MAIN_TEXT = TextColor.color(0x00AAAA), WHITE = TextColor.color(
+            0xFFFFFF), GRAY = TextColor.color(0x9A9A9A), RED = TextColor.color(0xFF604C), GREEN = TextColor.color(0x45C93E);
     /*
     ==============================================
                 Speed related messages
@@ -31,20 +27,46 @@ public class Messages {
 
     public static void sendSpeedToolInfo(@NotNull Player player) {
 
-        Message message = new Message().newLine()
-                .addText("       === ", GRAY).addText("SpeedTool Command", WHITE, TextDecoration.BOLD).addText(" ===", GRAY).newLine().newLine()
-                .addClickText("/speedtool", ClickEvent.suggestCommand("/speedtool"), MAIN_TEXT).newLine()
-                .addText("  Gives the currently set speedtool", HIGHLIGHTED_TEXT).newLine().newLine()
-                .addClickText("/speedtool", ClickEvent.suggestCommand("/speedtool info"), MAIN_TEXT).newLine()
-                .addText("  Opens this info page", HIGHLIGHTED_TEXT).newLine().newLine()
+        Message message = new Message()
+                .newLine()
+                .addText("       === ", GRAY)
+                .addText(
+                        "SpeedTool Command",
+                        WHITE,
+                        TextDecoration.BOLD
+                )
+                .addText(" ===", GRAY)
+                .newLine()
+                .newLine()
+                .addClickText("/speedtool", ClickEvent.suggestCommand("/speedtool"), MAIN_TEXT)
+                .newLine()
+                .addText("  Gives the currently set speedtool", HIGHLIGHTED_TEXT)
+                .newLine()
+                .newLine()
+                .addClickText("/speedtool", ClickEvent.suggestCommand("/speedtool info"), MAIN_TEXT)
+                .newLine()
+                .addText("  Opens this info page", HIGHLIGHTED_TEXT)
+                .newLine()
+                .newLine()
                 .addClickText("/speedtool", ClickEvent.suggestCommand("/speedtool 2.45 10.0"), MAIN_TEXT)
-                .addText(" <").addHoverText("arg1", "Valid input range: 0.0 - 10.0", WHITE).addText(">")
-                .addText(" <").addHoverText("arg2", "Valid input range: 0.0 - 10.0 | -l | -r", WHITE).addText(">").newLine()
-                .addText("  Sets the left- and,or right-click values", HIGHLIGHTED_TEXT).newLine()
-                .addText("  Specify the value by setting arg2 to", HIGHLIGHTED_TEXT).newLine()
-                .addText("      -l for left-click", HIGHLIGHTED_TEXT).newLine()
-                .addText("      -r for right-click", HIGHLIGHTED_TEXT).newLine().newLine()
-                .addClickText("/setspeedtool", ClickEvent.suggestCommand("/setspeedtool"), MAIN_TEXT).newLine()
+                .addText(" <")
+                .addHoverText("arg1", "Valid input range: 0.0 - 10.0", WHITE)
+                .addText(">")
+                .addText(" <")
+                .addHoverText("arg2", "Valid input range: 0.0 - 10.0 | -l | -r", WHITE)
+                .addText(">")
+                .newLine()
+                .addText("  Sets the left- and,or right-click values", HIGHLIGHTED_TEXT)
+                .newLine()
+                .addText("  Specify the value by setting arg2 to", HIGHLIGHTED_TEXT)
+                .newLine()
+                .addText("      -l for left-click", HIGHLIGHTED_TEXT)
+                .newLine()
+                .addText("      -r for right-click", HIGHLIGHTED_TEXT)
+                .newLine()
+                .newLine()
+                .addClickText("/setspeedtool", ClickEvent.suggestCommand("/setspeedtool"), MAIN_TEXT)
+                .newLine()
                 .addText("  Changes the speedtool item to the held item", HIGHLIGHTED_TEXT);
 
         message.send(player);
@@ -52,17 +74,35 @@ public class Messages {
 
     public static void sendSpeedInfo(@NotNull Player player) {
 
-        Message message = new Message().newLine()
-                .addText("       === ", GRAY).addText("Speed Command", WHITE, TextDecoration.BOLD).addText(" ===", GRAY).newLine().newLine()
-                .addClickText("/speed", ClickEvent.suggestCommand("/speed"), MAIN_TEXT).newLine()
-                .addText("  Returns the current speed value", HIGHLIGHTED_TEXT).newLine().newLine()
+        Message message = new Message()
+                .newLine()
+                .addText("       === ", GRAY)
+                .addText(
+                        "Speed Command",
+                        WHITE,
+                        TextDecoration.BOLD
+                )
+                .addText(" ===", GRAY)
+                .newLine()
+                .newLine()
+                .addClickText("/speed", ClickEvent.suggestCommand("/speed"), MAIN_TEXT)
+                .newLine()
+                .addText("  Returns the current speed value", HIGHLIGHTED_TEXT)
+                .newLine()
+                .newLine()
                 .addClickText("/speed", ClickEvent.suggestCommand("/speed 2.45"), MAIN_TEXT)
-                .addText(" <").addHoverText("arg1", "Valid input range: 0.0 - 10.0 | info", WHITE).addText(">")
-                .addText("  Sets the speed to input value", HIGHLIGHTED_TEXT).newLine()
-                .addText("  info as input opens this info page", HIGHLIGHTED_TEXT).newLine()
-                .addClickText("/flyspeed", ClickEvent.suggestCommand("/flyspeed | /fs"), MAIN_TEXT).newLine()
+                .addText(" <")
+                .addHoverText("arg1", "Valid input range: 0.0 - 10.0 | info", WHITE)
+                .addText(">")
+                .addText("  Sets the speed to input value", HIGHLIGHTED_TEXT)
+                .newLine()
+                .addText("  info as input opens this info page", HIGHLIGHTED_TEXT)
+                .newLine()
+                .addClickText("/flyspeed", ClickEvent.suggestCommand("/flyspeed | /fs"), MAIN_TEXT)
+                .newLine()
                 .addText("  Sets the flyspeed to input value", HIGHLIGHTED_TEXT)
-                .addClickText("/walkspeed", ClickEvent.suggestCommand("/flyspeed | /fs"), MAIN_TEXT).newLine()
+                .addClickText("/walkspeed", ClickEvent.suggestCommand("/flyspeed | /fs"), MAIN_TEXT)
+                .newLine()
                 .addText("  Sets the walkspeed to input value", HIGHLIGHTED_TEXT);
 
         message.send(player);
@@ -84,21 +124,26 @@ public class Messages {
 
     public static void sendCurrentFlySpeed(@NotNull Player player) {
 
-        Message message = new Message().addPrefix().addText("Current flying speed set to: ", MAIN_TEXT).addText(String.valueOf(SpeedHandler.getSpeed(player) * 10), HIGHLIGHTED_TEXT, TextDecoration.BOLD);
+        Message message = new Message().addPrefix().addText("Current flying speed set to: ", MAIN_TEXT).addText(String.valueOf(
+                SpeedHandler.getSpeed(player) * 10), HIGHLIGHTED_TEXT, TextDecoration.BOLD);
         message.send(player);
 
     }
 
     public static void sendCurrentWalkSpeed(@NotNull Player player) {
 
-        Message message = new Message().addPrefix().addText("Current walking speed set to: ", MAIN_TEXT).addText(String.valueOf(SpeedHandler.getSpeed(player) * 10), HIGHLIGHTED_TEXT, TextDecoration.BOLD);
+        Message message = new Message().addPrefix().addText("Current walking speed set to: ", MAIN_TEXT).addText(String.valueOf(
+                SpeedHandler.getSpeed(player) * 10), HIGHLIGHTED_TEXT, TextDecoration.BOLD);
         message.send(player);
 
     }
 
     public static void sendInputRange(@NotNull Player player) {
 
-        Message message = new Message().addPrefix().addText("Valid input range: ", MAIN_TEXT).addText("0.0 - 10", HIGHLIGHTED_TEXT);
+        Message message = new Message().addPrefix().addText("Valid input range: ", MAIN_TEXT).addText(
+                "0.0 - 10",
+                HIGHLIGHTED_TEXT
+        );
         message.send(player);
 
     }
@@ -108,19 +153,29 @@ public class Messages {
         Message lore, message;
 
         if (BSUtils.getSpeedTools().contains(player.getName())) {
-            lore = new Message()
-                    .addText(BSUtils.getSpeedTools().get(player.getName() + ".left").toString(), Messages.HIGHLIGHTED_TEXT)
-                    .addText(" | ", Messages.MAIN_TEXT).addText(BSUtils.getSpeedTools().get(player.getName() + ".right").toString(), Messages.HIGHLIGHTED_TEXT);
+            lore = new Message().addText(
+                    BSUtils.getSpeedTools().get(player.getName() + ".left").toString(),
+                    Messages.HIGHLIGHTED_TEXT
+            ).addText(" | ", Messages.MAIN_TEXT).addText(
+                    BSUtils.getSpeedTools().get(player.getName() + ".right").toString(),
+                    Messages.HIGHLIGHTED_TEXT
+            );
 
-            message = new Message().addPrefix().addText("Speedtool set to: ", MAIN_TEXT).addHoverText(Objects.requireNonNull(BSUtils.getSpeedTools().get(player.getName() + ".item")).toString(), lore, HIGHLIGHTED_TEXT);
+            message = new Message().addPrefix().addText("Speedtool set to: ", MAIN_TEXT).addHoverText(Objects
+                    .requireNonNull(BSUtils.getSpeedTools().get(player.getName() + ".item"))
+                    .toString(), lore, HIGHLIGHTED_TEXT);
 
-        }else {
+        } else {
 
-            lore = new Message()
-                    .addText(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.left")).toString(), Messages.HIGHLIGHTED_TEXT)
-                    .addText(" | ", Messages.MAIN_TEXT).addText(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.right")).toString(), Messages.HIGHLIGHTED_TEXT);
+            lore = new Message().addText(Objects
+                    .requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.left"))
+                    .toString(), Messages.HIGHLIGHTED_TEXT).addText(" | ", Messages.MAIN_TEXT).addText(Objects
+                    .requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.right"))
+                    .toString(), Messages.HIGHLIGHTED_TEXT);
 
-            message = new Message().addPrefix().addText("Speedtool set to: ", MAIN_TEXT).addHoverText(Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.item")).toString(), lore, HIGHLIGHTED_TEXT);
+            message = new Message().addPrefix().addText("Speedtool set to: ", MAIN_TEXT).addHoverText(Objects
+                    .requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.item"))
+                    .toString(), lore, HIGHLIGHTED_TEXT);
 
         }
 
@@ -130,22 +185,42 @@ public class Messages {
 
     public static void sendSetClickValues(@NotNull Player player, String @NotNull [] args) {
 
-        Message message = new Message().addPrefix().addText("Speedtool values set to: ", MAIN_TEXT).addText(args[0], HIGHLIGHTED_TEXT, TextDecoration.BOLD).addText(" | ", MAIN_TEXT).addText(args[1], HIGHLIGHTED_TEXT, TextDecoration.BOLD);
+        Message message = new Message().addPrefix().addText("Speedtool values set to: ", MAIN_TEXT).addText(
+                args[0],
+                HIGHLIGHTED_TEXT,
+                TextDecoration.BOLD
+        ).addText(" | ", MAIN_TEXT).addText(
+                args[1],
+                HIGHLIGHTED_TEXT,
+                TextDecoration.BOLD
+        );
         message.send(player);
 
     }
-//TODO
+
     public static void sendWarpInfo(Player player) {
 
-        Message message = new Message().newLine()
-                .addText("       === ", GRAY).addText("Warp Command", WHITE, TextDecoration.BOLD).addText(" ===", GRAY).newLine().newLine()
+        Message message = new Message()
+                .newLine()
+                .addText("       === ", GRAY)
+                .addText("Warp Command", WHITE, TextDecoration.BOLD)
+                .addText(" ===", GRAY)
+                .newLine()
+                .newLine()
                 .addClickText("/warp", ClickEvent.suggestCommand("/warp <arg1> [arg2]"), MAIN_TEXT)
-                .addText(" <").addHoverText("arg1", "<name> | <info> [args2]", WHITE).addText(">")
-                .addText("  Teleports to the given warp", HIGHLIGHTED_TEXT).newLine()
-                .addText("  info opens this help page", HIGHLIGHTED_TEXT).newLine()
-                .addClickText("/setwarp", ClickEvent.suggestCommand("/setwarp <name>"), MAIN_TEXT).newLine()
-                .addText("  Sets a warp", HIGHLIGHTED_TEXT).newLine()
-                .addClickText("/delwarp", ClickEvent.suggestCommand("/delwarp <name>"), MAIN_TEXT).newLine()
+                .addText(" <")
+                .addHoverText("arg1", "<name> | <info> [args2]", WHITE)
+                .addText(">")
+                .addText("  Teleports to the given warp", HIGHLIGHTED_TEXT)
+                .newLine()
+                .addText("  info opens this help page", HIGHLIGHTED_TEXT)
+                .newLine()
+                .addClickText("/setwarp", ClickEvent.suggestCommand("/setwarp <name>"), MAIN_TEXT)
+                .newLine()
+                .addText("  Sets a warp", HIGHLIGHTED_TEXT)
+                .newLine()
+                .addClickText("/delwarp", ClickEvent.suggestCommand("/delwarp <name>"), MAIN_TEXT)
+                .newLine()
                 .addText(" deletes a given warp", HIGHLIGHTED_TEXT);
 
         message.send(player);
@@ -153,44 +228,49 @@ public class Messages {
     }
 
     public static void sendWarpList(Player player, String pageArg) {
-
         TreeMap<Integer, List<Warp>> warpPages = WarpHandler.getWarpListPages();
         int page;
 
         try {
             page = Integer.parseInt(pageArg);
-        }catch (Exception exception) {
+        } catch (NumberFormatException exception) {
             exception.printStackTrace();
             page = warpPages.size();
         }
 
-
-        if(page > warpPages.size()) {
+        if (page > warpPages.size()) {
             page = warpPages.size();
         }
 
         List<Warp> warps = warpPages.get(page);
 
-        Message message = new Message();
+        Message message = new Message()
+                .addText("       === ", GRAY)
+                .addText("Warp List - Page " + page + "/" + warpPages.size(), WHITE, TextDecoration.BOLD)
+                .addText(" ===", GRAY)
+                .newLine()
+                .newLine();
 
-        message.addText("       === ", GRAY).addText("Warp List - Page " + page + "/" + warpPages.size(), WHITE, TextDecoration.BOLD).addText(" ===", GRAY).newLine().newLine();
-
-        for(Warp name : warps) {
-            message.addClickText(name.name(), ClickEvent.suggestCommand("/warp " + name), HIGHLIGHTED_TEXT)
-                    .addClickHoverText(" [x]", "delete", RED, ClickEvent.runCommand("/delwarp " + name)).newLine();
+        for (Warp warp : warps) {
+            message.addClickText(warp.name(), ClickEvent.suggestCommand("/warp " + warp), HIGHLIGHTED_TEXT)
+                    .addClickHoverText(" [x]", "delete", RED, ClickEvent.runCommand("/delwarp " + warp))
+                    .newLine();
         }
-        if(page != 1 && page != warpPages.size()) {
+
+        if (page != 1 && page != warpPages.size()) {
             message.addClickText("Previous Page", ClickEvent.runCommand("/warp list " + (page - 1)), GRAY)
                     .addText("|", GRAY)
-                    .addClickText("Next Page", ClickEvent.runCommand("/warp list " + (page + 1)), GRAY).newLine();
-        }else if(page < warpPages.size()) {
-            message.addClickText("Next Page", ClickEvent.runCommand("/warp list " + (page + 1)), GRAY).newLine();
-        }else if(page == warpPages.size()) {
-            message.addClickText("Previous Page", ClickEvent.runCommand("/warp list " + (page - 1)), GRAY).newLine();
+                    .addClickText("Next Page", ClickEvent.runCommand("/warp list " + (page + 1)), GRAY)
+                    .newLine();
+        } else if (page < warpPages.size()) {
+            message.addClickText("Next Page", ClickEvent.runCommand("/warp list " + (page + 1)), GRAY)
+                    .newLine();
+        } else if (page == warpPages.size()) {
+            message.addClickText("Previous Page", ClickEvent.runCommand("/warp list " + (page - 1)), GRAY)
+                    .newLine();
         }
 
         message.send(player);
-
     }
 
     public static void sendNoWarps(Player player) {
@@ -209,8 +289,11 @@ public class Messages {
 
         Message message = new Message();
 
-        message.addText(warp.name(), RED)
-                .addClickText(" does not exist!", ClickEvent.suggestCommand("/setwarp " + warp.name()), HIGHLIGHTED_TEXT);
+        message.addText(warp.name(), RED).addClickText(
+                " does not exist!",
+                ClickEvent.suggestCommand("/setwarp " + warp.name()),
+                HIGHLIGHTED_TEXT
+        );
 
         message.send(player);
     }
@@ -219,8 +302,11 @@ public class Messages {
 
         Message message = new Message();
 
-        message.addText("Successfully created: ", HIGHLIGHTED_TEXT)
-                .addClickText((warp.name() +  "!"), ClickEvent.runCommand("/warp " + warp.name()), GREEN);
+        message.addText("Successfully created: ", HIGHLIGHTED_TEXT).addClickText(
+                (warp.name() + "!"),
+                ClickEvent.runCommand("/warp " + warp.name()),
+                GREEN
+        );
 
         message.send(player);
 
@@ -230,8 +316,7 @@ public class Messages {
 
         Message message = new Message();
 
-        message.addText("Successfully removed: ", HIGHLIGHTED_TEXT)
-                .addText((warp.name() +  "!"), RED);
+        message.addText("Successfully removed: ", HIGHLIGHTED_TEXT).addText((warp.name() + "!"), RED);
 
         message.send(player);
 
@@ -242,8 +327,7 @@ public class Messages {
         Message message = new Message();
 
 
-        message.addText("Successfully teleported to: ", HIGHLIGHTED_TEXT)
-                    .addText(warp.name() + "!", GREEN);
+        message.addText("Successfully teleported to: ", HIGHLIGHTED_TEXT).addText(warp.name() + "!", GREEN);
 
         message.send(player);
 
@@ -254,19 +338,12 @@ public class Messages {
         Message message = new Message();
 
         message.addText("Successfully teleported to: ", HIGHLIGHTED_TEXT)
-                .addText("x: ", WHITE).addText(location.getBlockX() + " ", GRAY)
-                .addText("y: ", WHITE).addText(location.getBlockY() + " ", GRAY)
-                .addText("z: ", WHITE).addText(location.getBlockZ() + "", GRAY);
-
-        message.send(player);
-    }
-
-    public static void sendWarpAlreadyCreated(Player player) {
-
-        Message message = new Message();
-
-        message.addText("This warp already exists!");
-
+                .addText("x: ", WHITE)
+                .addText(location.getBlockX() + " ", GRAY)
+                .addText("y: ", WHITE)
+                .addText(location.getBlockY() + " ", GRAY)
+                .addText("z: ", WHITE)
+                .addText(location.getBlockZ() + "", GRAY);
 
         message.send(player);
     }

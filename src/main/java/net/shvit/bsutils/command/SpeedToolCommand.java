@@ -14,67 +14,53 @@ public class SpeedToolCommand implements CommandExecutor {
     private String[] args;
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    public boolean onCommand(
+            @NotNull CommandSender sender,
+            @NotNull Command command,
+            @NotNull String label,
+            @NotNull String[] args
+    ) {
+        if (!(sender instanceof Player)) {
+            return false;
+        }
 
-        if (sender instanceof Player) {
+        this.player = (Player) sender;
+        this.args = args;
 
-            this.player = (Player) sender;
-            this.args = args;
-
-            if (label.equalsIgnoreCase("setspeedtool")) {
-
-                handleSetSpeedTool();
-
-            } else if (label.equalsIgnoreCase("speedtool")) {
-
-                handleSpeedTool();
-
-            }
+        if (label.equalsIgnoreCase("setspeedtool")) {
+            handleSetSpeedTool();
+        } else if (label.equalsIgnoreCase("speedtool")) {
+            handleSpeedTool();
         }
 
         return false;
     }
 
     private void handleSetSpeedTool() {
-
-        SpeedToolHandler.setTool(this.player);
-        SpeedToolHandler.giveTool(this.player);
-        Messages.sendSpeedToolSetTo(this.player);
-
+        SpeedToolHandler.setTool(player);
+        SpeedToolHandler.giveTool(player);
+        Messages.sendSpeedToolSetTo(player);
     }
 
     private void handleSpeedTool() {
-
-        if(this.args.length >= 3 || this.args.length == 1) {
-
-            Messages.sendSpeedToolInfo(this.player);
-
-        }else if (this.args.length == 0) {
-
-            SpeedToolHandler.giveTool(this.player);
-
+        if (args.length >= 3 || args.length == 1) {
+            Messages.sendSpeedToolInfo(player);
+        } else if (args.length == 0) {
+            SpeedToolHandler.giveTool(player);
         } else {
-
             handleSetClickValues();
-
         }
     }
 
     private void handleSetClickValues() {
-
-        if (this.args[1].equalsIgnoreCase("-l")) {
-
-            SpeedToolHandler.setLeftClickValue(this.player, this.args[0]);
-
-        } else if (this.args[1].equalsIgnoreCase("-r")) {
-
-            SpeedToolHandler.setRightClickValue(this.player, this.args[0]);
-
+        if (args[1].equalsIgnoreCase("-l")) {
+            SpeedToolHandler.setLeftClickValue(player, args[0]);
+        } else if (args[1].equalsIgnoreCase("-r")) {
+            SpeedToolHandler.setRightClickValue(player, args[0]);
         } else {
-
-            SpeedToolHandler.setClickValues(this.player, this.args[0], this.args[1]);
-
+            SpeedToolHandler.setClickValues(player, args[0], args[1]);
         }
-        Messages.sendSetClickValues(this.player, this.args);
+        Messages.sendSetClickValues(player, args);
     }
+
 }

@@ -77,7 +77,12 @@ public class Message {
     public Message addHoverText(String text, String displayText, TextColor color) {
 
         TextComponent displaySection = Component.text().content(displayText).color(color).build();
-        TextComponent addTextSection = Component.text().content(text).color(color).hoverEvent(HoverEvent.showText(displaySection)).build();
+        TextComponent addTextSection = Component
+                .text()
+                .content(text)
+                .color(color)
+                .hoverEvent(HoverEvent.showText(displaySection))
+                .build();
 
         this.message.append(addTextSection);
 
@@ -87,7 +92,12 @@ public class Message {
     public Message addHoverText(String text, @NotNull Message displayText, TextColor color) {
 
         TextComponent displaySection = Component.text().append(displayText.build()).color(color).build();
-        TextComponent addTextSection = Component.text().content(text).color(color).hoverEvent(HoverEvent.showText(displaySection)).build();
+        TextComponent addTextSection = Component
+                .text()
+                .content(text)
+                .color(color)
+                .hoverEvent(HoverEvent.showText(displaySection))
+                .build();
 
         this.message.append(addTextSection);
 
@@ -97,7 +107,12 @@ public class Message {
     public Message addHoverText(String text, String displayText, TextColor color, TextColor displayColor) {
 
         TextComponent displaySection = Component.text().content(displayText).color(displayColor).build();
-        TextComponent addTextSection = Component.text().content(text).color(color).hoverEvent(HoverEvent.showText(displaySection)).build();
+        TextComponent addTextSection = Component
+                .text()
+                .content(text)
+                .color(color)
+                .hoverEvent(HoverEvent.showText(displaySection))
+                .build();
 
         this.message.append(addTextSection);
 
@@ -107,7 +122,13 @@ public class Message {
     public Message addClickHoverText(String text, String displayText, TextColor color, ClickEvent event) {
 
         TextComponent displaySection = Component.text().content(displayText).color(color).build();
-        TextComponent addTextSection = Component.text().content(text).color(color).hoverEvent(HoverEvent.showText(displaySection)).clickEvent(event).build();
+        TextComponent addTextSection = Component
+                .text()
+                .content(text)
+                .color(color)
+                .hoverEvent(HoverEvent.showText(displaySection))
+                .clickEvent(event)
+                .build();
 
         this.message.append(addTextSection);
 
@@ -117,7 +138,13 @@ public class Message {
     public Message addClickHoverText(String text, String displayText, TextColor color, TextColor displayColor, ClickEvent event) {
 
         TextComponent displaySection = Component.text().content(displayText).color(displayColor).build();
-        TextComponent addTextSection = Component.text().content(text).color(color).hoverEvent(HoverEvent.showText(displaySection)).clickEvent(event).build();
+        TextComponent addTextSection = Component
+                .text()
+                .content(text)
+                .color(color)
+                .hoverEvent(HoverEvent.showText(displaySection))
+                .clickEvent(event)
+                .build();
 
         this.message.append(addTextSection);
 
@@ -125,43 +152,30 @@ public class Message {
     }
 
     public Message addList(@NotNull ArrayList<String> list, String separator, TextColor color, TextColor separatorColor) {
-
-        Message addList = new Message();
+        Message message = new Message();
 
         for (String string : list) {
-
-            addList.addText(string, color).addText(separator, separatorColor);
-
+            message.addText(string, color).addText(separator, separatorColor);
         }
 
-        this.message.append(addList.build());
+        this.message.append(message.build());
 
         return this;
     }
 
     public Message addHoverList(@NotNull ArrayList<String> list, String separator, TextColor color, TextColor separatorColor) {
-
         Message addHoverList = new Message();
-        int count = 0;
 
-        for (String text : list) {
+        for (int i = 0; i < list.size(); i++) {
+            String text = list.get(i);
+            addHoverList.addHoverText(text, text, color).addText(separator, separatorColor);
 
-            if (count < 5) {
-
-                addHoverList.addHoverText(text, text, color).addText(separator, separatorColor);
-                count += 1;
-
-            } else if (count == 5) {
-
-                addHoverList.addHoverText(text, text, color).addText(separator, separatorColor).newLine();
-                count = 0;
-
+            if ((i + 1) % 5 == 0) {
+                addHoverList.newLine();
             }
-
         }
 
         this.message.append(addHoverList.build());
-
         return this;
     }
 
