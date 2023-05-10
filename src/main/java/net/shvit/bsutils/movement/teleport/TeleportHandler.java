@@ -7,21 +7,23 @@ import org.bukkit.entity.Player;
 
 public class TeleportHandler {
 
-    public static <T> void teleport(Player player, T location) {
+    public static <T> void teleport(Player player, T input) {
 
-        if(location instanceof Warp) {
-            player.teleport(checkLocation(((Warp) location).location()));
-            Messages.sendToDestination(player, (Warp) location);
-        }else if(location instanceof Location) {
-            player.teleport(checkLocation((Location) location));
-            Messages.sendToDestination(player, (Location) location);
+        if (input instanceof Warp warp) {
+
+            player.teleport(checkLocation(warp.location()));
+            Messages.sendToDestination(player, warp);
+
+        } else if (input instanceof Location location) {
+
+            player.teleport(checkLocation(location));
+            Messages.sendToDestination(player, location);
         }
-
     }
 
     public static Location checkLocation(Location location) {
 
-        if(location.getBlock().isSolid()) {
+        if (location.getBlock().isSolid()) {
 
             location.setY(location.getWorld().getHighestBlockYAt(location) + 1);
 

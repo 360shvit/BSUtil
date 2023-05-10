@@ -1,10 +1,15 @@
 package net.shvit.bsutils.io;
 
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class FileBuilder {
 
@@ -23,8 +28,9 @@ public class FileBuilder {
         try {
 
             this.configuration.save(file);
+            this.configuration.load(file);
 
-        } catch (IOException exception) {
+        } catch (IOException | InvalidConfigurationException exception) {
 
             exception.printStackTrace();
 
@@ -43,6 +49,18 @@ public class FileBuilder {
 
     public Object get(String path) {
         return this.configuration.get(path);
+    }
+
+    public @NotNull Map<String, Object> getSection(String path) {
+        Map<String, Object> locationMap = new TreeMap<>();
+        ConfigurationSection locationSection = this.configuration.getConfigurationSection(path);
+
+        if(locationSection != null) {
+            for (String key : locationSection.getKeys(true)) {
+                locationMap.put(key, locationSection.get(key));
+            }
+        }
+        return locationMap;
     }
 
     public Boolean contains(String path) {

@@ -124,13 +124,13 @@ public class Message {
         return this;
     }
 
-    public Message addList(@NotNull ArrayList<String> list, String seperator, TextColor color, TextColor seperatorColor) {
+    public Message addList(@NotNull ArrayList<String> list, String separator, TextColor color, TextColor separatorColor) {
 
         Message addList = new Message();
 
         for (String string : list) {
 
-            addList.addText(string, color).addText(seperator, seperatorColor);
+            addList.addText(string, color).addText(separator, separatorColor);
 
         }
 
@@ -139,7 +139,7 @@ public class Message {
         return this;
     }
 
-    public Message addHoverList(@NotNull ArrayList<String> list, String seperator, TextColor color, TextColor seperatorColor) {
+    public Message addHoverList(@NotNull ArrayList<String> list, String separator, TextColor color, TextColor separatorColor) {
 
         Message addHoverList = new Message();
         int count = 0;
@@ -148,12 +148,12 @@ public class Message {
 
             if (count < 5) {
 
-                addHoverList.addHoverText(text, text, color).addText(seperator, seperatorColor);
+                addHoverList.addHoverText(text, text, color).addText(separator, separatorColor);
                 count += 1;
 
             } else if (count == 5) {
 
-                addHoverList.addHoverText(text, text, color).addText(seperator, seperatorColor).newLine();
+                addHoverList.addHoverText(text, text, color).addText(separator, separatorColor).newLine();
                 count = 0;
 
             }

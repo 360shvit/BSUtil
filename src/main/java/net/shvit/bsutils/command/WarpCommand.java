@@ -92,8 +92,7 @@ public class WarpCommand implements CommandExecutor {
 
         }else {
 
-            WarpHandler.sendToWarp(this.player, new Warp(this.args[0]).fromConfig());
-            BSUtils.getPlugin().getLogger().info("WarpCommand; 96; " + this.args[0]);
+            WarpHandler.sendToWarp(this.player, new Warp(this.args[0]));
 
         }
 

@@ -7,13 +7,13 @@ import net.shvit.bsutils.BSUtils;
 import net.shvit.bsutils.movement.speed.SpeedHandler;
 import net.shvit.bsutils.movement.warp.Warp;
 import net.shvit.bsutils.movement.warp.WarpHandler;
-import net.shvit.bsutils.util.PageCollection;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.TreeMap;
 
 public class Messages {
 
@@ -154,7 +154,7 @@ public class Messages {
 
     public static void sendWarpList(Player player, String pageArg) {
 
-        PageCollection<Integer, Warp> warpPages = WarpHandler.getWarpListPages();
+        TreeMap<Integer, List<Warp>> warpPages = WarpHandler.getWarpListPages();
         int page;
 
         try {
@@ -169,7 +169,7 @@ public class Messages {
             page = warpPages.size();
         }
 
-        ArrayList<Warp> warps = warpPages.get(page);
+        List<Warp> warps = warpPages.get(page);
 
         Message message = new Message();
 
