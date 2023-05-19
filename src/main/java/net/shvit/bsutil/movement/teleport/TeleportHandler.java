@@ -1,7 +1,7 @@
-package net.shvit.bsutils.movement.teleport;
+package net.shvit.bsutil.movement.teleport;
 
-import net.shvit.bsutils.chat.Messages;
-import net.shvit.bsutils.movement.warp.Warp;
+import net.shvit.bsutil.chat.Messages;
+import net.shvit.bsutil.movement.warp.Warp;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 

@@ -1,6 +1,6 @@
-package net.shvit.bsutils.movement.speed.speedtool;
+package net.shvit.bsutil.movement.speed.speedtool;
 
-import net.shvit.bsutils.movement.speed.SpeedHandler;
+import net.shvit.bsutil.movement.speed.SpeedHandler;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;

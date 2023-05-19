@@ -1,14 +1,14 @@
-package net.shvit.bsutils;
+package net.shvit.bsutil;
 
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-import net.shvit.bsutils.chat.Message;
-import net.shvit.bsutils.command.SpeedCommand;
-import net.shvit.bsutils.command.SpeedToolCommand;
-import net.shvit.bsutils.command.WarpCommand;
-import net.shvit.bsutils.io.FileBuilder;
-import net.shvit.bsutils.listener.SpeedEvent;
+import net.shvit.bsutil.chat.Message;
+import net.shvit.bsutil.command.SpeedCommand;
+import net.shvit.bsutil.command.SpeedToolCommand;
+import net.shvit.bsutil.command.WarpCommand;
+import net.shvit.bsutil.io.FileBuilder;
+import net.shvit.bsutil.listener.SpeedEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.plugin.PluginManager;
@@ -18,13 +18,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.logging.Logger;
 
-public final class BSUtils extends JavaPlugin {
+public final class BSUtil extends JavaPlugin {
 
-    public static BSUtils plugin;
+    public static BSUtil plugin;
     public static TextComponent prefix;
     public static FileBuilder speedTools, warps;
 
-    public static BSUtils getPlugin() {
+    public static BSUtil getPlugin() {
         return plugin;
     }
 
@@ -77,29 +77,29 @@ public final class BSUtils extends JavaPlugin {
 
         prefix();
 
-        plugin.getLogger().info("Initialized BSUtils!");
+        plugin.getLogger().info("Initialized BSUtil!");
     }
 
     public void initConfig() {
 
-        if (!plugin.getConfig().contains("BSUtils.defaults.prefix")) {
-            plugin.getConfig().set("BSUtils.defaults.prefix.startCap", "[");
-            plugin.getConfig().set("BSUtils.defaults.prefix.capColor", "10132122");
-            plugin.getConfig().set("BSUtils.defaults.prefix.body", "");
-            plugin.getConfig().set("BSUtils.defaults.prefix.color", "43690");
-            plugin.getConfig().set("BSUtils.defaults.prefix.endCap", "] ");
+        if (!plugin.getConfig().contains("BSUtil.defaults.prefix")) {
+            plugin.getConfig().set("BSUtil.defaults.prefix.startCap", "[");
+            plugin.getConfig().set("BSUtil.defaults.prefix.capColor", "10132122");
+            plugin.getConfig().set("BSUtil.defaults.prefix.body", "");
+            plugin.getConfig().set("BSUtil.defaults.prefix.color", "43690");
+            plugin.getConfig().set("BSUtil.defaults.prefix.endCap", "] ");
             plugin.saveConfig();
         }
 
-        if (!plugin.getConfig().contains("BSUtils.defaults.settings.warp")) {
-            plugin.getConfig().set("BSUtils.defaults.settings.warp.list-length", "10");
+        if (!plugin.getConfig().contains("BSUtil.defaults.settings.warp")) {
+            plugin.getConfig().set("BSUtil.defaults.settings.warp.list-length", 10);
             plugin.saveConfig();
         }
 
-        if (!plugin.getConfig().contains("BSUtils.defaults.globalSpeedTool")) {
-            plugin.getConfig().set("BSUtils.defaults.globalSpeedTool.item", Material.DIAMOND_HOE.toString());
-            plugin.getConfig().set("BSUtils.defaults.globalSpeedTool.left", 1.0);
-            plugin.getConfig().set("BSUtils.defaults.globalSpeedTool.right", 10.0);
+        if (!plugin.getConfig().contains("BSUtil.defaults.globalSpeedTool")) {
+            plugin.getConfig().set("BSUtil.defaults.globalSpeedTool.item", Material.DIAMOND_HOE.toString());
+            plugin.getConfig().set("BSUtil.defaults.globalSpeedTool.left", 1.0);
+            plugin.getConfig().set("BSUtil.defaults.globalSpeedTool.right", 10.0);
             plugin.saveConfig();
         }
 
@@ -123,23 +123,23 @@ public final class BSUtils extends JavaPlugin {
     public void prefix() {
 
         TextColor capColor = TextColor.color(Integer.parseInt(Objects
-                .requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.prefix.capColor"))
+                .requireNonNull(BSUtil.getPlugin().getConfig().get("BSUtil.defaults.prefix.capColor"))
                 .toString()));
         TextColor color = TextColor.color(Integer.parseInt(Objects
-                .requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.prefix.color"))
+                .requireNonNull(BSUtil.getPlugin().getConfig().get("BSUtil.defaults.prefix.color"))
                 .toString()));
 
         prefix = new Message()
                 .addText(Objects
-                        .requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.prefix.startCap"))
+                        .requireNonNull(BSUtil.getPlugin().getConfig().get("BSUtil.defaults.prefix.startCap"))
                         .toString(), capColor)
                 .addText(
-                        Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.prefix.body")).toString(),
+                        Objects.requireNonNull(BSUtil.getPlugin().getConfig().get("BSUtil.defaults.prefix.body")).toString(),
                         color,
                         TextDecoration.BOLD
                 )
                 .addText(
-                        Objects.requireNonNull(BSUtils.getPlugin().getConfig().get("BSUtils.defaults.prefix.endCap")).toString(),
+                        Objects.requireNonNull(BSUtil.getPlugin().getConfig().get("BSUtil.defaults.prefix.endCap")).toString(),
                         capColor
                 ).build();
 

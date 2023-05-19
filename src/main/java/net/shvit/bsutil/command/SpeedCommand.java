@@ -1,7 +1,7 @@
-package net.shvit.bsutils.command;
+package net.shvit.bsutil.command;
 
-import net.shvit.bsutils.chat.Messages;
-import net.shvit.bsutils.movement.speed.SpeedHandler;
+import net.shvit.bsutil.chat.Messages;
+import net.shvit.bsutil.movement.speed.SpeedHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

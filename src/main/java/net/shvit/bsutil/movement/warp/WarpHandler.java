@@ -1,8 +1,8 @@
-package net.shvit.bsutils.movement.warp;
+package net.shvit.bsutil.movement.warp;
 
-import net.shvit.bsutils.BSUtils;
-import net.shvit.bsutils.chat.Messages;
-import net.shvit.bsutils.movement.teleport.TeleportHandler;
+import net.shvit.bsutil.BSUtil;
+import net.shvit.bsutil.chat.Messages;
+import net.shvit.bsutil.movement.teleport.TeleportHandler;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -30,7 +30,7 @@ public class WarpHandler {
 
     public static void sendToWarp(Player player, Warp warp) {
 
-        if (!BSUtils.getWarps().contains(warp.name())) {
+        if (!BSUtil.getWarps().contains(warp.name())) {
             Messages.sendWarpNotExists(player, warp);
         } else {
             TeleportHandler.teleport(player, warp);
@@ -39,7 +39,7 @@ public class WarpHandler {
 
     public static List<Warp> getWarps() {
         List<Warp> warps = new ArrayList<>();
-        for (String name : BSUtils.getWarps().getKeys()) {
+        for (String name : BSUtil.getWarps().getKeys()) {
             try {
                 Warp warp = new Warp(name);
                 warps.add(warp);
@@ -55,7 +55,7 @@ public class WarpHandler {
         int pageSize;
 
         try {
-            pageSize = BSUtils.getPlugin().getConfig().getInt("BSUtils.defaults.settings.warp.list-length");
+            pageSize = BSUtil.getPlugin().getConfig().getInt("BSUtil.defaults.settings.warp.list-length");
         } catch (Exception exception) {
             pageSize = 10;
             exception.printStackTrace();
@@ -65,10 +65,16 @@ public class WarpHandler {
         int fromIndex = 0;
         int pageIndex = 1;
 
+        /*
+        System.out.println("Warps list size: " + warps.size());
+        System.out.println("Page size: " + pageSize);
+        */
+
         while (fromIndex < warps.size()) {
             int toIndex = Math.min(fromIndex + pageSize, warps.size());
             List<Warp> subList = warps.subList(fromIndex, toIndex);
             collection.put(pageIndex, subList);
+            //System.out.println("Page " + pageIndex + ": " + subList.size() + " warps");
             fromIndex += pageSize;
             pageIndex++;
         }

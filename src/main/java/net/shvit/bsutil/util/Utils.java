@@ -1,4 +1,4 @@
-package net.shvit.bsutils.util;
+package net.shvit.bsutil.util;
 
 import org.jetbrains.annotations.NotNull;
 

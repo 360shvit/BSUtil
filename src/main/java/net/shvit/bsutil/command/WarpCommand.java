@@ -1,9 +1,9 @@
-package net.shvit.bsutils.command;
+package net.shvit.bsutil.command;
 
-import net.shvit.bsutils.BSUtils;
-import net.shvit.bsutils.chat.Messages;
-import net.shvit.bsutils.movement.warp.Warp;
-import net.shvit.bsutils.movement.warp.WarpHandler;
+import net.shvit.bsutil.BSUtil;
+import net.shvit.bsutil.chat.Messages;
+import net.shvit.bsutil.movement.warp.Warp;
+import net.shvit.bsutil.movement.warp.WarpHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,6 +14,9 @@ public class WarpCommand implements CommandExecutor {
 
     private Player player;
     private String[] args;
+
+    private String label;
+
 
     @Override
     public boolean onCommand(
@@ -28,8 +31,11 @@ public class WarpCommand implements CommandExecutor {
 
         this.player = (Player) sender;
         this.args = args;
+        this.label = label;
 
-        handleCommandBounds();
+        if(!commandBounds()) {
+            return false;
+        }
 
         if (label.equalsIgnoreCase("warp")) {
             handleWarp();
@@ -42,20 +48,26 @@ public class WarpCommand implements CommandExecutor {
         return false;
     }
 
-    private void handleCommandBounds() {
-        if (args.length == 0 || args[0].equalsIgnoreCase("info")) {
+    private boolean commandBounds() {
+
+        boolean correctBounds = true;
+
+        if (args.length == 0
+                ||  args[0].equalsIgnoreCase("info")
+                || (args[0].equalsIgnoreCase("list") && args.length > 2)
+                || (label.equalsIgnoreCase("delwarp") || label.equalsIgnoreCase("setwarp")) && args.length > 1) {
+
             Messages.sendWarpInfo(player);
-        } else if (args[0].equalsIgnoreCase("list") && !(args.length == 1 || args.length == 2)) {
-            Messages.sendWarpInfo(player);
-        } else {
-            Messages.sendWarpInfo(player);
+            correctBounds = false;
         }
+
+        return correctBounds;
     }
 
     private void handleWarp() {
 
         if (args[0].equalsIgnoreCase("list")) {
-            if (BSUtils.getWarps().isEmpty()) {
+            if (BSUtil.getWarps().isEmpty()) {
                 Messages.sendNoWarps(player);
             } else {
                 Messages.sendWarpList(player, args.length == 1 ? "1" : args[1]);

@@ -1,7 +1,7 @@
-package net.shvit.bsutils.movement.speed;
+package net.shvit.bsutil.movement.speed;
 
-import net.shvit.bsutils.BSUtils;
-import net.shvit.bsutils.chat.Messages;
+import net.shvit.bsutil.BSUtil;
+import net.shvit.bsutil.chat.Messages;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -26,7 +26,7 @@ public class SpeedHandler {
 
             }
         } else {
-            BSUtils.getPlugin().getLogger().info("Not a valid input type only expects String or Float!");
+            BSUtil.getPlugin().getLogger().info("Not a valid input type only expects String or Float!");
         }
 
         checkSpeed(player, speed);

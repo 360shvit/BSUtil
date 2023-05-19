@@ -1,4 +1,4 @@
-package net.shvit.bsutils.io;
+package net.shvit.bsutil.io;
 
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.InvalidConfigurationException;

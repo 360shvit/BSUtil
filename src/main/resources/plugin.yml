@@ -1,10 +1,10 @@
-name: BSUtils
+name: BSUtil
 version: '${project.version}'
-main: net.shvit.bsutils.BSUtils
+main: net.shvit.bsutil.BSUtil
 api-version: 1.19
 prefix: BSU
 authors: [ 360shvit ]
-description: 'Essential BuildServerUtils'
+description: 'Essential BuildServerUtil'
 
 commands:
   speedtool:

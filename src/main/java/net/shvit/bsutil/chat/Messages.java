@@ -1,12 +1,12 @@
-package net.shvit.bsutils.chat;
+package net.shvit.bsutil.chat;
 
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-import net.shvit.bsutils.BSUtils;
-import net.shvit.bsutils.movement.speed.SpeedHandler;
-import net.shvit.bsutils.movement.warp.Warp;
-import net.shvit.bsutils.movement.warp.WarpHandler;
+import net.shvit.bsutil.BSUtil;
+import net.shvit.bsutil.movement.speed.SpeedHandler;
+import net.shvit.bsutil.movement.warp.Warp;
+import net.shvit.bsutil.movement.warp.WarpHandler;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -152,29 +152,29 @@ public class Messages {
 
         Message lore, message;
 
-        if (BSUtils.getSpeedTools().contains(player.getName())) {
+        if (BSUtil.getSpeedTools().contains(player.getName())) {
             lore = new Message().addText(
-                    BSUtils.getSpeedTools().get(player.getName() + ".left").toString(),
+                    BSUtil.getSpeedTools().get(player.getName() + ".left").toString(),
                     Messages.HIGHLIGHTED_TEXT
             ).addText(" | ", Messages.MAIN_TEXT).addText(
-                    BSUtils.getSpeedTools().get(player.getName() + ".right").toString(),
+                    BSUtil.getSpeedTools().get(player.getName() + ".right").toString(),
                     Messages.HIGHLIGHTED_TEXT
             );
 
             message = new Message().addPrefix().addText("Speedtool set to: ", MAIN_TEXT).addHoverText(Objects
-                    .requireNonNull(BSUtils.getSpeedTools().get(player.getName() + ".item"))
+                    .requireNonNull(BSUtil.getSpeedTools().get(player.getName() + ".item"))
                     .toString(), lore, HIGHLIGHTED_TEXT);
 
         } else {
 
             lore = new Message().addText(Objects
-                    .requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.left"))
+                    .requireNonNull(BSUtil.getPlugin().getConfig().get("BSUtil.defaults.globalSpeedTool.left"))
                     .toString(), Messages.HIGHLIGHTED_TEXT).addText(" | ", Messages.MAIN_TEXT).addText(Objects
-                    .requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.right"))
+                    .requireNonNull(BSUtil.getPlugin().getConfig().get("BSUtil.defaults.globalSpeedTool.right"))
                     .toString(), Messages.HIGHLIGHTED_TEXT);
 
             message = new Message().addPrefix().addText("Speedtool set to: ", MAIN_TEXT).addHoverText(Objects
-                    .requireNonNull(BSUtils.getPlugin().getConfig().get("Buildtools.globalSpeedTool.item"))
+                    .requireNonNull(BSUtil.getPlugin().getConfig().get("BSUtil.defaults.globalSpeedTool.item"))
                     .toString(), lore, HIGHLIGHTED_TEXT);
 
         }
@@ -253,7 +253,7 @@ public class Messages {
 
         for (Warp warp : warps) {
             message.addClickText(warp.name(), ClickEvent.suggestCommand("/warp " + warp), HIGHLIGHTED_TEXT)
-                    .addClickHoverText(" [x]", "delete", RED, ClickEvent.runCommand("/delwarp " + warp))
+                    .addClickHoverText(" [x]", "delete", RED, ClickEvent.runCommand("/delwarp " + warp.name()))
                     .newLine();
         }
 

@@ -1,6 +1,6 @@
-package net.shvit.bsutils.movement.warp;
+package net.shvit.bsutil.movement.warp;
 
-import net.shvit.bsutils.BSUtils;
+import net.shvit.bsutil.BSUtil;
 import org.bukkit.Location;
 
 
@@ -11,7 +11,7 @@ public class Warp {
 
     public Warp(String name) {
 
-        if (BSUtils.getWarps().contains(name)) {
+        if (BSUtil.getWarps().contains(name)) {
 
             load(name);
 
@@ -29,16 +29,16 @@ public class Warp {
         }
 
         //Config contains input init name
-        if (BSUtils.getWarps().contains(name)) {
+        if (BSUtil.getWarps().contains(name)) {
             this.name = name;
 
             try {
-                this.location = Location.deserialize(BSUtils.getWarps().getSection(name + ".location"));
+                this.location = Location.deserialize(BSUtil.getWarps().getSection(name + ".location"));
             } catch (Exception exception) {
                 exception.printStackTrace();
             }
         } else {
-            BSUtils.logger().info("Could not load Warp: File does not contain given warp name");
+            BSUtil.logger().info("Could not load Warp: File does not contain given warp name");
         }
     }
 
@@ -55,7 +55,7 @@ public class Warp {
         Location loc = null;
 
         try {
-            loc = Location.deserialize(BSUtils.getWarps().getSection(this.name + ".location"));
+            loc = Location.deserialize(BSUtil.getWarps().getSection(this.name + ".location"));
         } catch (Exception exception) {
             exception.printStackTrace();
         }
@@ -65,21 +65,21 @@ public class Warp {
 
     public void toConfig() {
 
-        if (BSUtils.getWarps().contains(this.name)) {
+        if (BSUtil.getWarps().contains(this.name)) {
             return;
         }
 
-        BSUtils.getWarps().set(this.name + ".location", this.location.serialize());
-        BSUtils.getWarps().save();
+        BSUtil.getWarps().set(this.name + ".location", this.location.serialize());
+        BSUtil.getWarps().save();
 
     }
 
     public void remove() {
 
-        if (BSUtils.getWarps().contains(this.name)) {
+        if (BSUtil.getWarps().contains(this.name)) {
 
-            BSUtils.getWarps().set(this.name, null);
-            BSUtils.getWarps().save();
+            BSUtil.getWarps().set(this.name, null);
+            BSUtil.getWarps().save();
 
         }
 
