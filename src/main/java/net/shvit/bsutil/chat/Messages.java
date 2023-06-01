@@ -252,7 +252,7 @@ public class Messages {
                 .newLine();
 
         for (Warp warp : warps) {
-            message.addClickText(warp.name(), ClickEvent.suggestCommand("/warp " + warp), HIGHLIGHTED_TEXT)
+            message.addClickText(warp.name(), ClickEvent.suggestCommand("/warp " + warp.name()), HIGHLIGHTED_TEXT)
                     .addClickHoverText(" [x]", "delete", RED, ClickEvent.runCommand("/delwarp " + warp.name()))
                     .newLine();
         }
